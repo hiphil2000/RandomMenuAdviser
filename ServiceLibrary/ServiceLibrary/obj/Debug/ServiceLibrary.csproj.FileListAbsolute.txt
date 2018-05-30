@@ -1,0 +1,6 @@
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.dll
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.pdb
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csprojAssemblyReference.cache
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csproj.CoreCompileInputs.cache
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.dll
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
