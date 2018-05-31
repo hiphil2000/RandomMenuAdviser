@@ -12,13 +12,16 @@ namespace RandomMenuAdvisor_Service
 {
     public partial class randomMenuAdvisor_ServiceForm : Form
     {
-        Service service;
+        Service service;                    // 서비스 
+        ServiceLibrary.DatabaseService db;
 
         public randomMenuAdvisor_ServiceForm()
         {
             InitializeComponent();
             service = new Service();
+            db = new ServiceLibrary.DatabaseService();
             CheckServices();
+            CheckDatabase();
         }
 
         /// <summary>
@@ -42,11 +45,29 @@ namespace RandomMenuAdvisor_Service
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        /// <summary>
+        /// 데이터베이스의 연결상태를 확인하고 상태 표시를 업데이트합니다.
+        /// </summary>
+        private void CheckDatabase()
         {
-
+            db.DatabaseConnectionTest();
+            if (db.IsRunning)
+            {
+                lab_DbStatus.Text = "동작중";
+                lab_DbStatus.ForeColor = Color.LightGreen;
+            }
+            else
+            {
+                lab_DbStatus.Text = "접속중";
+                lab_DbStatus.ForeColor = Color.Gray;
+            }
         }
 
+        /// <summary>
+        /// 서비스 시작 버튼을 누르면 서비스를 시작합니다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_StartService_Click(object sender, EventArgs e)
         {
             if (service.StartService())
@@ -61,6 +82,11 @@ namespace RandomMenuAdvisor_Service
             CheckServices();
         }
 
+        /// <summary>
+        /// 서비스 종료 버튼을 누르면 서비스를 종료합니다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_StopService_Click(object sender, EventArgs e)
         {
             if (service.StopService())
@@ -73,6 +99,11 @@ namespace RandomMenuAdvisor_Service
             }
 
             CheckServices();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            CheckDatabase();
         }
     }
 }

@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lab_ServiceStatus = new System.Windows.Forms.Label();
             this.lab_DbStatus = new System.Windows.Forms.Label();
             this.btn_StartService = new System.Windows.Forms.Button();
             this.btn_StopService = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +61,7 @@
             // lab_ServiceStatus
             // 
             this.lab_ServiceStatus.AutoSize = true;
-            this.lab_ServiceStatus.Font = new System.Drawing.Font("굴림", 14F);
+            this.lab_ServiceStatus.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lab_ServiceStatus.Location = new System.Drawing.Point(146, 31);
             this.lab_ServiceStatus.Name = "lab_ServiceStatus";
             this.lab_ServiceStatus.Size = new System.Drawing.Size(0, 19);
@@ -68,7 +70,7 @@
             // lab_DbStatus
             // 
             this.lab_DbStatus.AutoSize = true;
-            this.lab_DbStatus.Font = new System.Drawing.Font("굴림", 14F);
+            this.lab_DbStatus.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lab_DbStatus.Location = new System.Drawing.Point(146, 76);
             this.lab_DbStatus.Name = "lab_DbStatus";
             this.lab_DbStatus.Size = new System.Drawing.Size(0, 19);
@@ -94,10 +96,17 @@
             this.btn_StopService.UseVisualStyleBackColor = true;
             this.btn_StopService.Click += new System.EventHandler(this.Btn_StopService_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // randomMenuAdvisor_ServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(238, 198);
             this.Controls.Add(this.btn_StopService);
             this.Controls.Add(this.btn_StartService);
@@ -108,7 +117,6 @@
             this.Name = "randomMenuAdvisor_ServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "서비스";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,6 +130,7 @@
         private System.Windows.Forms.Label lab_DbStatus;
         private System.Windows.Forms.Button btn_StartService;
         private System.Windows.Forms.Button btn_StopService;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
