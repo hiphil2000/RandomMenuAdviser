@@ -31,10 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Rec = new System.Windows.Forms.TextBox();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgrid_Sta = new System.Windows.Forms.DataGridView();
             this.btn_Rec = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Sta)).BeginInit();
@@ -65,37 +61,9 @@
             this.txt_Rec.Size = new System.Drawing.Size(188, 21);
             this.txt_Rec.TabIndex = 5;
             // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "통계";
-            this.Column5.Name = "Column5";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "음식명";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 110;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "카테고리";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 110;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "날짜/시간";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 130;
-            // 
             // dgrid_Sta
             // 
             this.dgrid_Sta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_Sta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column5});
             this.dgrid_Sta.Location = new System.Drawing.Point(32, 162);
             this.dgrid_Sta.Name = "dgrid_Sta";
             this.dgrid_Sta.RowTemplate.Height = 23;
@@ -137,10 +105,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_Rec;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridView dgrid_Sta;
         private System.Windows.Forms.Button btn_Rec;
     }
