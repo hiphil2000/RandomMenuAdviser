@@ -15,7 +15,7 @@ namespace ServiceLibrary
         string test();
 
         [OperationContract]
-        bool GetDatabaseStatus();
+        void DatabaseConnectionTest();
 
         [OperationContract]
         DataTable GetRandomRequestedData();
@@ -42,9 +42,9 @@ namespace ServiceLibrary
             return ds.GetCategoryData();
         }
 
-        public bool GetDatabaseStatus()
+        public void DatabaseConnectionTest()
         {
-            return ds.GetDatabaseStatus();
+            ds.DatabaseConnectionTest();
         }
 
         public DataTable GetFoodData()
