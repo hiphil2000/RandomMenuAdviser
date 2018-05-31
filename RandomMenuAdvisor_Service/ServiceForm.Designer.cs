@@ -117,6 +117,7 @@
             this.Name = "randomMenuAdvisor_ServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "서비스";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CheckExit);
             this.ResumeLayout(false);
             this.PerformLayout();
 

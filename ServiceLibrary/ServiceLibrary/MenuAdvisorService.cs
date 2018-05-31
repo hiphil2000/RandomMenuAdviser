@@ -26,6 +26,7 @@ namespace ServiceLibrary
         [OperationContract]
         DataTable GetFoodData();
 
+
     }
 
     public class MenuAdvisorService : IMenuAdvisor

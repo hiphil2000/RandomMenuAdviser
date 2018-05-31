@@ -12,16 +12,25 @@ namespace RandomMenuAdvisor_Service
 {
     public partial class randomMenuAdvisor_ServiceForm : Form
     {
-        Service service;                    // 서비스 
-        ServiceLibrary.DatabaseService db;
+        Service service;                    // 서비스 참조 변수
+        ServiceLibrary.DatabaseService db;  // 데이터베이스 서비스 참조 변수
+        bool firstRun = true;               // 실행의 처음인지 확인합니다.
 
         public randomMenuAdvisor_ServiceForm()
         {
             InitializeComponent();
             service = new Service();
             db = new ServiceLibrary.DatabaseService();
-            CheckServices();
-            CheckDatabase();
+            CheckServices();                // 서비스가 작동중인지 확인합니다.
+            CheckDatabase();                // 데이터베이스가 작동중인지 확인합니다.
+        }
+
+        private void CheckExit(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("정말로 종료하시겠습니까?", "종료", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
 
         /// <summary>
@@ -50,6 +59,9 @@ namespace RandomMenuAdvisor_Service
         /// </summary>
         private void CheckDatabase()
         {
+            if (firstRun)
+                timer1.Interval = 1000;
+                
             db.DatabaseConnectionTest();
             if (db.IsRunning)
             {
@@ -60,6 +72,12 @@ namespace RandomMenuAdvisor_Service
             {
                 lab_DbStatus.Text = "접속중";
                 lab_DbStatus.ForeColor = Color.Gray;
+            }
+
+            if (firstRun && db.IsRunning)
+            {
+                firstRun = false;
+                timer1.Interval = 5000;
             }
         }
 
@@ -101,6 +119,11 @@ namespace RandomMenuAdvisor_Service
             CheckServices();
         }
 
+        /// <summary>
+        /// Timer를 이용해 일정 시간이 지날 때마다 데이터베이스 연결상태를 확인하도록 합니다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             CheckDatabase();
