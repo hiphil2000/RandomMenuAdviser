@@ -19,6 +19,9 @@ namespace RandomMenuAdvisor_Service
 
         }
 
+        /// <summary>
+        /// 서비스를 시작하는 메소드입니다.
+        /// </summary>
         public bool StartService()
         {
             host = new ServiceHost(typeof(MenuAdvisorService),
@@ -27,9 +30,11 @@ namespace RandomMenuAdvisor_Service
             host.Open();
             isRunning = true;
             return true;
-
         }
 
+        /// <summary>
+        /// 서비스를 종료하는 메소드입니다.
+        /// </summary>
         public bool StopService()
         {
             host.Close();
