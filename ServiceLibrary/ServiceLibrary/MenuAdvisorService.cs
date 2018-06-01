@@ -12,13 +12,10 @@ namespace ServiceLibrary
     public interface IMenuAdvisor
     {
         [OperationContract]
-        string test();
-
-        [OperationContract]
         void DatabaseConnectionTest();
 
         [OperationContract]
-        DataTable GetRandomRequestedData();
+        DataTable GetRandomRequestedData(int data_length);
 
         [OperationContract]
         DataTable GetCategoryData();
@@ -26,7 +23,11 @@ namespace ServiceLibrary
         [OperationContract]
         DataTable GetFoodData();
 
+        [OperationContract]
+        DataTable GetPercentageData(string category);
 
+        [OperationContract]
+        void SetRandomRequestedData(DateTime random_date, string random_category_name, string random_food_name);
     }
 
     public class MenuAdvisorService : IMenuAdvisor
@@ -53,14 +54,19 @@ namespace ServiceLibrary
             return ds.GetFoodData();
         }
 
-        public DataTable GetRandomRequestedData()
+        public DataTable GetRandomRequestedData(int data_length)
         {
-            return ds.GetRandomRequestedData();
+            return ds.GetRandomRequestedData(data_length);
         }
 
-        public string test()
+        public DataTable GetPercentageData(string category)
         {
-            return "test";
+            return ds.GetPercentageData(category);
+        }
+
+        public void SetRandomRequestedData(DateTime random_date, string random_category_name, string random_food_name)
+        {
+            ds.SetRandomRequestedData(random_date, random_category_name, random_food_name);
         }
     }
     
