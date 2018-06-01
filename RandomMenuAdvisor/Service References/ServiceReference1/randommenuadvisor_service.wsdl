@@ -37,6 +37,12 @@
   <wsdl:message name="IMenuAdvisor_GetFoodData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetFoodDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IMenuAdvisor_GetPercentageData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPercentageData" />
+  </wsdl:message>
+  <wsdl:message name="IMenuAdvisor_GetPercentageData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPercentageDataResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMenuAdvisor">
     <wsdl:operation name="test">
       <wsdl:input wsaw:Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/test" message="tns:IMenuAdvisor_test_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="GetFoodData">
       <wsdl:input wsaw:Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetFoodData" message="tns:IMenuAdvisor_GetFoodData_InputMessage" />
       <wsdl:output wsaw:Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetFoodDataResponse" message="tns:IMenuAdvisor_GetFoodData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPercentageData">
+      <wsdl:input wsaw:Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageData" message="tns:IMenuAdvisor_GetPercentageData_InputMessage" />
+      <wsdl:output wsaw:Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageDataResponse" message="tns:IMenuAdvisor_GetPercentageData_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace RandomMenuAdvisor.ServiceReference1 {
     
     
@@ -31,11 +33,11 @@ namespace RandomMenuAdvisor.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetRandomRequestedData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetRandomRequestedDataRes" +
             "ponse")]
-        System.Data.DataTable GetRandomRequestedData();
+        System.Data.DataTable GetRandomRequestedData(int data_length);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetRandomRequestedData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetRandomRequestedDataRes" +
             "ponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> GetRandomRequestedDataAsync();
+        System.Threading.Tasks.Task<System.Data.DataTable> GetRandomRequestedDataAsync(int data_length);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetCategoryData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetCategoryDataResponse")]
         System.Data.DataTable GetCategoryData();
@@ -48,6 +50,14 @@ namespace RandomMenuAdvisor.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetFoodData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetFoodDataResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> GetFoodDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageDataResponse" +
+            "")]
+        System.Data.DataTable GetPercentageData(string category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageDataResponse" +
+            "")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetPercentageDataAsync(string category);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -93,12 +103,12 @@ namespace RandomMenuAdvisor.ServiceReference1 {
             return base.Channel.DatabaseConnectionTestAsync();
         }
         
-        public System.Data.DataTable GetRandomRequestedData() {
-            return base.Channel.GetRandomRequestedData();
+        public System.Data.DataTable GetRandomRequestedData(int data_length) {
+            return base.Channel.GetRandomRequestedData(data_length);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> GetRandomRequestedDataAsync() {
-            return base.Channel.GetRandomRequestedDataAsync();
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetRandomRequestedDataAsync(int data_length) {
+            return base.Channel.GetRandomRequestedDataAsync(data_length);
         }
         
         public System.Data.DataTable GetCategoryData() {
@@ -116,5 +126,14 @@ namespace RandomMenuAdvisor.ServiceReference1 {
         public System.Threading.Tasks.Task<System.Data.DataTable> GetFoodDataAsync() {
             return base.Channel.GetFoodDataAsync();
         }
+        
+        public System.Data.DataTable GetPercentageData(string category) {
+            return base.Channel.GetPercentageData(category);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetPercentageDataAsync(string category) {
+            return base.Channel.GetPercentageDataAsync(category);
+        }
+        
     }
 }
