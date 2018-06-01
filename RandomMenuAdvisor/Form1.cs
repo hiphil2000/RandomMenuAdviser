@@ -13,10 +13,10 @@ namespace RandomMenuAdvisor
 {
     public partial class RandomMenu : Form
     {
-        string Menu, Lastmenu;         // 오늘 메뉴 저장 변수, 어제 메뉴 저장 변수입니다.
+        string Menu, Lastmenu,a;         // 오늘 메뉴 저장 변수, 어제 메뉴 저장 변수입니다.
 
         MenuAdvisorClient client;
-
+        
 
         public RandomMenu()
         {
@@ -31,25 +31,54 @@ namespace RandomMenuAdvisor
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-
+                       
         private void btn_Rec_Click(object sender, EventArgs e)
         {
+            DateTime date1;
+            date1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
+            Random r = new Random();
+            int menu = r.Next();
+            
+            DataTable Food = client.GetFoodData();
+            DataTable Request = client.GetRandomRequestedData(1);
+
+            int requestcount = Request.Rows.Count;
             // dgrid_Sta.RowCount = 30; = 그리드뷰 행 수를 30개로 지정
             //txt_Rec.Text = "밥";
             while (true)
             {
-                // DB select
-                Lastmenu = "Select menu, max(날짜) from tblname group by menu"; // 어제 메뉴를 db에서 불러와서 변수에 넣는 부분입니다.
-                Menu = "Select top (1) * from tblname where 통계수치 < 30";     // 오늘 메뉴를 랜덤으로 db에서 불러와 변수에 넣는 부분입니다.
+                // DB 
+                // 어제 메뉴를 db에서 불러오는 메소드
+                // 오늘 메뉴를 랜덤으로 db에서 불러오는 메소드
+ 
+               // MessageBox.Show(dt.Rows[0]["음식 명"].ToString());
 
                 if (Menu != Lastmenu)
                 {
-                    txt_Rec.Text = Menu;
-                    // 메뉴 및 시간 서버 전송 (insert, update)
-                    /* 
-                     * string toDayTime = DateTime.Now.ToString("HHmmss");
-                     * int ab = Int32.Parse(toDayTime);
-                     */
+                    
+                    txt_Rec. Text = Menu;
+
+                    if(DateTime.Now < date1)
+                    {
+                        if (requestcount>5)
+                        {
+                            
+                        }
+                        else
+                        {
+
+                        }
+
+                        // 현서한테 시간 및 메뉴 전송
+                        //client.GetFoodData();
+                        //client.GetGetRandomRequestedData();
+
+                    }
+                    else
+                    {
+                        //날짜를 오늘에서 하루 더 해서 보내기
+                    }
+
                 }
                 else
                 {
@@ -57,6 +86,7 @@ namespace RandomMenuAdvisor
                 }
             }
         }
+        
         public void SetDataSource(DataTable dt)
         {
             dgrid_Sta.DataSource = dt;
