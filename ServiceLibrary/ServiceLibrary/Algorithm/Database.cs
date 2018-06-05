@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace ServiceLibrary
 {
-    public class DatabaseService
+    public class Database
     {
         private SqlConnection conn;                 // 데이터베이스 연결 변수
         private bool isRunning;                     // 데이터베이스 연결 가능여부 변수
         public bool IsRunning { get => isRunning; } // 데이터베이스 연결 가능여부 변수 외부참조용
 
-        public DatabaseService()
+        public Database()
         {
-            string connectionString = "Data Source=192.168.1.69,1433;Integrated Security=False;User ID=sa;Password=p@ssw0rd;Database=RandomMenuAdvisor; Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString = "Data Source=192.168.1.3,1433;Integrated Security=False;User ID=sa;Password=p@ssw0rd;Database=RandomMenuAdvisor; Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             conn = new SqlConnection(connectionString);
         }
 
         /// <summary>
-        /// 데이터베이스에 연결이 가능한지 테스트하는 메소드입니다.
+        /// 데이터베이스에 연결이 가능한지 테스트하는 메소드입니다. 
         /// </summary>
         void ConnectTest()
         {
@@ -43,9 +43,20 @@ namespace ServiceLibrary
                     isRunning = false;
                 }
             }
-            else
+            else if(conn.State == ConnectionState.Connecting)
             {
-                isRunning = false;
+                try
+                {
+                    conn.Open();
+                    conn.Close();
+                    isRunning = true;
+                }
+                catch (Exception ex)
+                {
+                    if (conn != null)
+                        conn.Close();
+                    isRunning = false;
+                }
             }
             Console.WriteLine(isRunning.ToString());
         }
