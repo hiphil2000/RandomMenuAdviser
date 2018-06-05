@@ -10,3 +10,8 @@ C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj
 C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csproj.CoreCompileInputs.cache
 C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.dll
 C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csprojResolveAssemblyReference.cache
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.dll
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.dll
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.pdb

@@ -11,9 +11,9 @@ namespace ServiceLibrary
 {
     public class Database
     {
-        private SqlConnection conn;                 // 데이터베이스 연결 변수
-        private bool isRunning;                     // 데이터베이스 연결 가능여부 변수
-        public bool IsRunning { get => isRunning; } // 데이터베이스 연결 가능여부 변수 외부참조용
+        private SqlConnection conn;                         // 데이터베이스 연결 변수
+        private bool isRunning;                             // 데이터베이스 연결 가능여부 변수
+        public bool IsRunning { get { return isRunning; } } // 데이터베이스 연결 가능여부 변수 외부참조용
 
         public Database()
         {

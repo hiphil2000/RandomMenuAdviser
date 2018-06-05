@@ -12,8 +12,7 @@ namespace RandomMenuAdvisor_Service
         private ServiceHost host;
         private bool isRunning;
 
-        public bool IsRunning { get => isRunning; }
-
+        public bool IsRunning { get { return isRunning; } }
         public Service()
         {
 

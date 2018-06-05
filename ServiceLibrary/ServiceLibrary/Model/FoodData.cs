@@ -15,8 +15,31 @@ namespace ServiceLibrary.Model
         private string categoryName;
 
         [DataMember]
-        public string FoodName { get => foodName; set => foodName = value; }
+        public string FoodName
+        {
+            get
+            {
+                return foodName;
+            }
+
+            set
+            {
+                foodName = value;
+            }
+        }
+
         [DataMember]
-        public string CategoryName { get => categoryName; set => categoryName = value; }
+        public string CategoryName
+        {
+            get
+            {
+                return categoryName;
+            }
+
+            set
+            {
+                categoryName = value;
+            }
+        }
     }   
 }

@@ -30,3 +30,11 @@ C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Deb
 C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\RandomMenuAdvisor_Service.exe.config
 C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.exe
 C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.pdb
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.csprojResolveAssemblyReference.cache
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.randomMenuAdvisor_ServiceForm.resources
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.Properties.Resources.resources
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.csproj.GenerateResource.Cache
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\RandomMenuAdvisor_Service.exe
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\RandomMenuAdvisor_Service.pdb
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\ServiceLibrary.dll
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\ServiceLibrary.pdb
