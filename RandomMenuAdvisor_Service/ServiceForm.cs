@@ -61,8 +61,8 @@ namespace RandomMenuAdvisor_Service
         /// </summary>
         private void CheckDatabase()
         {
-            //if (firstRun)
-            //    timer1.Interval = 1000;
+            if (firstRun)
+                timer1.Interval = 1000;
                 
             db.DatabaseConnectionTest();
             if (db.IsRunning)
