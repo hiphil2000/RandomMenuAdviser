@@ -24,7 +24,7 @@ namespace ServiceLibrary.Algorithm
             {
                 if(Menu != Yesturday)
                 {
-                    if(int.Parse(Percentage) < 30)
+                    if(int.Parse(Percentage.Rows[0]["PERCENT"].ToString()) > 30)
                     {
                         return d;
                     }
