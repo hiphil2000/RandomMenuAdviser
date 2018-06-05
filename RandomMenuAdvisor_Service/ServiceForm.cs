@@ -7,20 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ServiceLibrary.Service;
+using algorithm = ServiceLibrary.Algorithm;
 
 namespace RandomMenuAdvisor_Service
 {
     public partial class randomMenuAdvisor_ServiceForm : Form
     {
-        Service service;                    // 서비스 참조 변수
-        ServiceLibrary.DatabaseService db;  // 데이터베이스 서비스 참조 변수
-        bool firstRun = true;               // 실행의 처음인지 확인합니다.
+        private Service service;                    // 서비스 참조 변수
+        private ServiceLibrary.Database db;  // 데이터베이스 서비스 참조 변수
+        private bool firstRun = true;               // 실행의 처음인지 확인합니다.
 
         public randomMenuAdvisor_ServiceForm()
         {
             InitializeComponent();
             service = new Service();
-            db = new ServiceLibrary.DatabaseService();
+            db = new ServiceLibrary.Database();
             CheckServices();                // 서비스가 작동중인지 확인합니다.
             CheckDatabase();                // 데이터베이스가 작동중인지 확인합니다.
         }
@@ -47,7 +49,7 @@ namespace RandomMenuAdvisor_Service
             }
             else
             {
-                lab_ServiceStatus.Text = "멈춤";
+                lab_ServiceStatus.Text = "멈춤"; 
                 lab_ServiceStatus.ForeColor = Color.Gray;
                 btn_StartService.Enabled = true;
                 btn_StopService.Enabled = false;
@@ -59,8 +61,8 @@ namespace RandomMenuAdvisor_Service
         /// </summary>
         private void CheckDatabase()
         {
-            if (firstRun)
-                timer1.Interval = 1000;
+            //if (firstRun)
+            //    timer1.Interval = 1000;
                 
             db.DatabaseConnectionTest();
             if (db.IsRunning)

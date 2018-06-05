@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
-using ServiceLibrary;
+using ServiceLibrary.Service;
 
 namespace RandomMenuAdvisor_Service
 {
@@ -24,7 +24,7 @@ namespace RandomMenuAdvisor_Service
         /// </summary>
         public bool StartService()
         {
-            host = new ServiceHost(typeof(MenuAdvisorService),
+            host = new ServiceHost(typeof(MenuAdvisor),
                                     new Uri("http://192.168.1.69:5000/wcf/example/randommenuadvisor_service"));
 
             host.Open();
