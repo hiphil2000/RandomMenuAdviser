@@ -15,22 +15,26 @@ namespace RandomMenuAdvisor_Service
     public partial class randomMenuAdvisor_ServiceForm : Form
     {
         private Service service;                    // 서비스 참조 변수
-        private ServiceLibrary.Database db;  // 데이터베이스 서비스 참조 변수
-        private bool firstRun = true;               // 실행의 처음인지 확인합니다.
+        private ServiceLibrary.Database db;         // 데이터베이스 서비스 참조 변수 
+        private bool firstRun = true;               // 첫 실행 플래그 변수
 
         public randomMenuAdvisor_ServiceForm()
         {
             InitializeComponent();
             service = new Service();
             db = new ServiceLibrary.Database();
-            CheckServices();                // 서비스가 작동중인지 확인합니다.
-            CheckDatabase();                // 데이터베이스가 작동중인지 확인합니다.
+            CheckServices();                        // 서비스가 작동중인지 확인합니다.
+            CheckDatabase();                        // 데이터베이스에 연결할 수 있는지 확인합니다.
         }
 
+        /// <summary>
+        /// 프로그램 종료시 바로 종료하지 않도록 합니다.
+        /// </summary>
         private void CheckExit(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("정말로 종료하시겠습니까?", "종료", MessageBoxButtons.YesNo) == DialogResult.No)
             {
+                service.StopService();
                 e.Cancel = true;
             }
         }
@@ -105,8 +109,6 @@ namespace RandomMenuAdvisor_Service
         /// <summary>
         /// 서비스 종료 버튼을 누르면 서비스를 종료합니다.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Btn_StopService_Click(object sender, EventArgs e)
         {
             if (service.StopService())
@@ -124,11 +126,10 @@ namespace RandomMenuAdvisor_Service
         /// <summary>
         /// Timer를 이용해 일정 시간이 지날 때마다 데이터베이스 연결상태를 확인하도록 합니다.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             CheckDatabase();
         }
     }
 }
++
