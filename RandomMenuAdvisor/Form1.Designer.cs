@@ -58,6 +58,7 @@
             // 
             this.txt_Rec.Location = new System.Drawing.Point(32, 61);
             this.txt_Rec.Name = "txt_Rec";
+            this.txt_Rec.ReadOnly = true;
             this.txt_Rec.Size = new System.Drawing.Size(188, 21);
             this.txt_Rec.TabIndex = 5;
             // 
@@ -76,7 +77,7 @@
             this.btn_Rec.Name = "btn_Rec";
             this.btn_Rec.Size = new System.Drawing.Size(75, 23);
             this.btn_Rec.TabIndex = 7;
-            this.btn_Rec.Text = "button1";
+            this.btn_Rec.Text = "추천";
             this.btn_Rec.UseVisualStyleBackColor = true;
             this.btn_Rec.Click += new System.EventHandler(this.btn_Rec_Click);
             // 
