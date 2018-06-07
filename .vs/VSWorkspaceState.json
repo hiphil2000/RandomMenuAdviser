@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ServiceLibrary"
+    "\\RandomMenuAdvisor_Service",
+    "\\ServiceLibrary",
+    "\\ServiceLibrary\\ServiceLibrary",
+    "\\ServiceLibrary\\ServiceLibrary\\Algorithm"
   ],
   "SelectedNode": "\\RandomMenuAdvisor_Service.sln",
   "PreviewInSolutionExplorer": false

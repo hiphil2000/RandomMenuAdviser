@@ -17,7 +17,7 @@ namespace ServiceLibrary
 
         public Database()
         {
-            string connectionString = "Data Source=192.168.1.3,1433;Integrated Security=False;User ID=sa;Password=p@ssw0rd;Database=RandomMenuAdvisor; Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString = "Data Source=192.168.1.69,1433;Integrated Security=False;User ID=sa;Password=p@ssw0rd;Database=RandomMenuAdvisor; Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             conn = new SqlConnection(connectionString);
         }
 
@@ -28,7 +28,7 @@ namespace ServiceLibrary
         {
             if (conn.State == ConnectionState.Open)
                 isRunning = true;
-            else if (conn.State == ConnectionState.Closed)
+            else if (conn.State == ConnectionState.Connecting)
             {
                 try
                 {
@@ -43,7 +43,7 @@ namespace ServiceLibrary
                     isRunning = false;
                 }
             }
-            else if(conn.State == ConnectionState.Connecting)
+            else if (conn.State == ConnectionState.Closed)
             {
                 try
                 {
