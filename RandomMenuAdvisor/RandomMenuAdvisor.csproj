@@ -83,7 +83,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Service References\ServiceReference1\MenuAdvisorService.wsdl" />
-    <None Include="Service References\ServiceReference1\randommenuadvisor_service.wsdl" />
+    <None Include="Service References\ServiceReference1\RandomMenuAdvisor.ServiceReference1.FoodData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\randommenuadvisor_service.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -113,6 +115,9 @@
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\ServiceReference1\randommenuadvisor_service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
