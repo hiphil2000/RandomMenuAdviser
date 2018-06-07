@@ -8,56 +8,111 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
 namespace RandomMenuAdvisor.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FoodData", Namespace="http://schemas.datacontract.org/2004/07/ServiceLibrary.Model")]
+    [System.SerializableAttribute()]
+    public partial class FoodData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FoodNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryName {
+            get {
+                return this.CategoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FoodName {
+            get {
+                return this.FoodNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FoodNameField, value) != true)) {
+                    this.FoodNameField = value;
+                    this.RaisePropertyChanged("FoodName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://192.168.1.69/wcf/MenuAdvisorService", ConfigurationName="ServiceReference1.IMenuAdvisor")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IMenuAdvisor")]
     public interface IMenuAdvisor {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/test", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/testResponse")]
-        string test();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/test", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/testResponse")]
-        System.Threading.Tasks.Task<string> testAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/DatabaseConnectionTest", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/DatabaseConnectionTestRes" +
-            "ponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/DatabaseConnectionTest", ReplyAction="http://tempuri.org/IMenuAdvisor/DatabaseConnectionTestResponse")]
         void DatabaseConnectionTest();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/DatabaseConnectionTest", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/DatabaseConnectionTestRes" +
-            "ponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/DatabaseConnectionTest", ReplyAction="http://tempuri.org/IMenuAdvisor/DatabaseConnectionTestResponse")]
         System.Threading.Tasks.Task DatabaseConnectionTestAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetRandomRequestedData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetRandomRequestedDataRes" +
-            "ponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetRandomRequestedData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetRandomRequestedDataResponse")]
         System.Data.DataTable GetRandomRequestedData(int data_length);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetRandomRequestedData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetRandomRequestedDataRes" +
-            "ponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetRandomRequestedData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetRandomRequestedDataResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> GetRandomRequestedDataAsync(int data_length);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetCategoryData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetCategoryDataResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetCategoryData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetCategoryDataResponse")]
         System.Data.DataTable GetCategoryData();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetCategoryData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetCategoryDataResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetCategoryData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetCategoryDataResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> GetCategoryDataAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetFoodData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetFoodDataResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetFoodData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetFoodDataResponse")]
         System.Data.DataTable GetFoodData();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetFoodData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetFoodDataResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetFoodData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetFoodDataResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> GetFoodDataAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageDataResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetPercentageData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetPercentageDataResponse")]
         System.Data.DataTable GetPercentageData(string category);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageData", ReplyAction="http://192.168.1.69/wcf/MenuAdvisorService/IMenuAdvisor/GetPercentageDataResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetPercentageData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetPercentageDataResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> GetPercentageDataAsync(string category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetRandomResult", ReplyAction="http://tempuri.org/IMenuAdvisor/GetRandomResultResponse")]
+        RandomMenuAdvisor.ServiceReference1.FoodData GetRandomResult();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetRandomResult", ReplyAction="http://tempuri.org/IMenuAdvisor/GetRandomResultResponse")]
+        System.Threading.Tasks.Task<RandomMenuAdvisor.ServiceReference1.FoodData> GetRandomResultAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -85,14 +140,6 @@ namespace RandomMenuAdvisor.ServiceReference1 {
         
         public MenuAdvisorClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public string test() {
-            return base.Channel.test();
-        }
-        
-        public System.Threading.Tasks.Task<string> testAsync() {
-            return base.Channel.testAsync();
         }
         
         public void DatabaseConnectionTest() {
@@ -135,5 +182,12 @@ namespace RandomMenuAdvisor.ServiceReference1 {
             return base.Channel.GetPercentageDataAsync(category);
         }
         
+        public RandomMenuAdvisor.ServiceReference1.FoodData GetRandomResult() {
+            return base.Channel.GetRandomResult();
+        }
+        
+        public System.Threading.Tasks.Task<RandomMenuAdvisor.ServiceReference1.FoodData> GetRandomResultAsync() {
+            return base.Channel.GetRandomResultAsync();
+        }
     }
 }
