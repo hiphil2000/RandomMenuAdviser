@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1108f9f8-f167-4fe5-b78e-e1ea9612c22f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="randommenuadvisor_service.xsd" MetadataType="Schema" ID="68e015be-8f81-4abc-84b3-82bcd9d24409" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?xsd=xsd1" />
+    <MetadataFile FileName="randommenuadvisor_service.disco" MetadataType="Disco" ID="a175fc3c-f865-4b6e-add8-67bf8f494d22" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?disco" />
+    <MetadataFile FileName="randommenuadvisor_service1.xsd" MetadataType="Schema" ID="4d68ea5a-f036-4902-b781-080cfd595e25" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?xsd=xsd0" />
+    <MetadataFile FileName="MenuAdvisorService.wsdl" MetadataType="Wsdl" ID="85550311-6695-4ed8-b520-f2167da9d2a8" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?wsdl" />
+    <MetadataFile FileName="randommenuadvisor_service.wsdl" MetadataType="Wsdl" ID="f0ebe776-f6de-48f9-b6e6-aa65d93f6e6c" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?wsdl=wsdl0" />
+    <MetadataFile FileName="randommenuadvisor_service2.xsd" MetadataType="Schema" ID="9fb0bc6c-4092-49af-9d98-ab8a0a1d15ea" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

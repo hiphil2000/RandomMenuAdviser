@@ -1,0 +1,17 @@
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.dll
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.pdb
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csprojAssemblyReference.cache
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csproj.CoreCompileInputs.cache
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.dll
+c:\users\office-n119\Source\Repos\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
+C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.dll
+C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.pdb
+C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csprojAssemblyReference.cache
+C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csproj.CoreCompileInputs.cache
+C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.dll
+C:\Users\OFFICE-N119\Desktop\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csprojResolveAssemblyReference.cache
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.dll
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.dll
+C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.pdb
