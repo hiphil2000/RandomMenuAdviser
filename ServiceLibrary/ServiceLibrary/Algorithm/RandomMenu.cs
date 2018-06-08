@@ -28,18 +28,15 @@ namespace ServiceLibrary.Algorithm
             FoodData resultFood = null;
 
             // 5개 이상의 데이터가 있는지 확인하는 반복문입니다.
-            for (int j = 0; j <= 6; j++)
-            {   
-                int.Parse(latelyTable.Rows[j]["음식 명"].ToString());
-                if (j < 6) { date = j; }
-                else { date = 6; }
-            }
+            date = latelyTable.Rows.Count;
+                
+            
 
             // 음식 랜덤을 돌리는 알고리즘입니다.
             while (true)
             {
                  // 5개 이상의 데이터가 있을 때, 조건과 비교하는 알고리즘 입니다.
-                if (date > 6)
+                if (date >= 6)
                 {
 
                     // 최근 메뉴와 랜덤 메뉴 값을 비교합니다.
