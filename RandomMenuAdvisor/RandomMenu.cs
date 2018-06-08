@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -22,16 +23,22 @@ namespace RandomMenuAdvisor
 
         int plusSleepTime = 0;                              // 스레드의 슬립 시간을 증가시키는 변수입니다.
 
-        DataTable foodList;       
+        DataTable foodList;
 
         public RandomMenu()
         {
             InitializeComponent();
             client = new MenuAdvisorClient();
 
-            foodList = client.GetFoodData();
+            try
+            {
+                foodList = client.GetFoodData();
+            }
+            catch (EndpointNotFoundException ex)
+            {
+                MessageBox.Show("서비스에 연결할 수 없습니다.");
+            }
         }
-
 
         private void btn_Rec_Click(object sender, EventArgs e)
         {
@@ -61,7 +68,7 @@ namespace RandomMenuAdvisor
             while (DateTime.Now <= endTime)
             {
                 Thread.Sleep(100 + plusSleepTime);
-                txt_Rec.Invoke(new TextboxUpdateCallback(TextUpdate), new object[] {foodList.Rows[r.Next(0, foodList.Rows.Count)]["음식 명"]});
+                txt_Rec.Invoke(new TextboxUpdateCallback(TextUpdate), new object[] { foodList.Rows[r.Next(0, foodList.Rows.Count)]["음식 명"] });
                 plusSleepTime += 50;
             }
 
