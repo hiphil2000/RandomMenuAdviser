@@ -9,7 +9,7 @@ namespace ServiceLibrary.Service
     public class MenuAdvisor : IMenuAdvisor
     {
         private Database database;
-        private RandomMenu random;
+        private RandomMenu randomMenu;
          
         MenuAdvisor()
         {
@@ -69,7 +69,7 @@ namespace ServiceLibrary.Service
         /// <returns>랜덤 메뉴</returns>
         public FoodData GetRandomResult()
         {
-            throw new NotImplementedException();
+            return randomMenu.Random();
         }
     }
 }
