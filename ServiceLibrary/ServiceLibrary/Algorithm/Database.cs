@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,7 +18,8 @@ namespace ServiceLibrary
 
         public Database()
         {
-            string connectionString = "Data Source=192.168.1.69,1433;Integrated Security=False;User ID=sa;Password=p@ssw0rd;Database=RandomMenuAdvisor; Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString = "Data Source=192.168.1.69,1433;Integrated Security=False;User ID=sa;Password=p@ssw0rd;Database=RandomMenuAdvisor;" +
+                " Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             conn = new SqlConnection(connectionString);
         }
 
@@ -41,6 +43,7 @@ namespace ServiceLibrary
                     if (conn != null)
                         conn.Close();
                     isRunning = false;
+                    throw ex;
                 }
             }
             else if (conn.State == ConnectionState.Closed)
@@ -56,52 +59,35 @@ namespace ServiceLibrary
                     if (conn != null)
                         conn.Close();
                     isRunning = false;
+                    throw ex;
                 }
             }
             Console.WriteLine(isRunning.ToString());
         }
 
+        
         /// <summary>
-        /// 클라이언트에서 뽑은 랜덤 메뉴 값을 업데이트 및 삽입합니다.
+        /// 프로시저에서 값을 받아오는 메소드입니다.
         /// </summary>
-        /// <param name="random_date">메뉴를 정한 시간입니다.</param>
-        /// <param name="random_category_name">카테고리</param>
-        /// <param name="random_food_name">음식 명</param>
-        internal void SetRandomRequestedData(DateTime random_date, string random_category_name, string random_food_name)
+        /// <param name="procedureName">프로시저 명</param>
+        /// <param name="tableName">결과 테이블 명</param>
+        /// <param name="parameters">프로시저 매개변수</param>
+        /// <returns>결과 테이블</returns>
+        private DataTable GetDataWithProcedure(string procedureName, string tableName, params Model.SqlParameter[] parameters)
         {
             try
             {
                 SqlCommand com = new SqlCommand();
                 com.CommandType = CommandType.StoredProcedure;
                 com.Connection = conn;
-                com.CommandText = "[dbo].[sp_insert_or_update_data]";
-                com.Parameters.AddWithValue("@random_date", random_date);
-                com.Parameters.AddWithValue("@random_category_name", random_category_name);
-                com.Parameters.AddWithValue("@random_food_name", random_food_name);
-                conn.Open();
-
-                com.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-
-            }
-        }
-
-        /// <summary>
-        /// 하나 혹은 모든 카테고리의 전체 대비 비율을 구합니다.
-        /// </summary>
-        /// <param name="category">카테고리의 이름입니다. 빈 string : 전체 카테고리, 카테고리 이름: 해당 카테고리</param>
-        /// <returns>카테고리 비율</returns>
-        internal DataTable GetPercentageData(string category)
-        {
-            try
-            {
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.Connection = conn;
-                com.CommandText = "[dbo].[sp_categoryPercentage]";
-                com.Parameters.AddWithValue("@category", category);
+                com.CommandText = procedureName;
+                if(parameters != null)
+                {
+                    foreach (Model.SqlParameter param in parameters)
+                    {
+                        com.Parameters.AddWithValue("@" + param.ParameterName, param.ParameterValue);
+                    }
+                }
                 conn.Open();
 
                 SqlDataReader sdr = com.ExecuteReader(CommandBehavior.CloseConnection);
@@ -113,7 +99,78 @@ namespace ServiceLibrary
             }
             catch (SqlException ex)
             {
-                return null;
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 프로시저로 데이터베이스에 값을 설정하는 메소드입니다.
+        /// </summary>
+        /// <param name="procedureName">프로시저 명</param>
+        /// <param name="parameters">프로시저 매개변수</param>
+        private void SetDataWithProcedure(string procedureName, params Model.SqlParameter[] parameters)
+        {
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.Connection = conn;
+                com.CommandText = procedureName;
+                foreach (Model.SqlParameter param in parameters)
+                {
+                    com.Parameters.AddWithValue("@" + param.ParameterName, param.ParameterValue);
+                }
+                conn.Open();
+
+                com.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// 클라이언트에서 뽑은 랜덤 메뉴 값을 업데이트 및 삽입합니다.
+        /// </summary>
+        /// <param name="random_date">메뉴를 정한 시간입니다.</param>
+        /// <param name="random_category_name">카테고리</param>
+        /// <param name="random_food_name">음식 명</param>
+        internal void SetRandomRequestedData(DateTime random_date, string random_category_name, string random_food_name)
+        {
+            try
+            {
+                Model.SqlParameter[] parameters = new Model.SqlParameter[]
+                {
+                    new Model.SqlParameter("random_date", random_date),
+                    new Model.SqlParameter("random_category_name", random_category_name),
+                    new Model.SqlParameter("random_food_name", random_food_name)
+                };
+                SetDataWithProcedure("[dbo].[sp_insert_or_update_data]", parameters);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 하나 혹은 모든 카테고리의 전체 대비 비율을 구합니다.
+        /// </summary>
+        /// <param name="category">카테고리의 이름 (빈 string : 전체 카테고리, 카테고리 이름: 해당 카테고리)</param>
+        /// <returns>카테고리 비율</returns>
+        internal DataTable GetPercentageData(string category)
+        {
+            try
+            {
+                Model.SqlParameter parameter = new Model.SqlParameter("category", category);
+                DataTable data = GetDataWithProcedure("[dbo].[sp_categoryPercentage]", "카테고리 비율", parameter);
+                return data;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
             }
         }
 
@@ -130,28 +187,19 @@ namespace ServiceLibrary
         /// <summary>
         /// 데이터베이스에서 현재까지 뽑은 랜덤 정보를 DataTable 형식으로 받아옵니다.
         /// </summary>
-        /// <param name="data_length">받아올 데이터의 범위입니다. 0: 모두, 1~: 월 단위만큼 </param>
+        /// <param name="data_length">받아올 데이터의 범위 (0: 모두, 1: 한 달, 2: 두 달...)</param>
         /// <returns>랜덤 메뉴 정보</returns>
         public DataTable GetRandomRequestedData(int data_length)
         {
             try
             {
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.Connection = conn;
-                com.CommandText = "[dbo].[sp_get_random_data]";
-                com.Parameters.AddWithValue("@data_length", data_length);
-                conn.Open();
-
-                SqlDataReader sdr = com.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable data = new DataTable("랜덤 음식 데이터");
-                data.Load(sdr);
-
+                Model.SqlParameter parameter = new Model.SqlParameter("data_length", data_length);
+                DataTable data = GetDataWithProcedure("[dbo].[sp_get_random_data]", "랜덤 음식 데이터", parameter);
                 return data;
-
-            } catch(SqlException ex)
+            }
+            catch (SqlException ex)
             {
-                return null;
+                throw ex;
             }
 
         }
@@ -164,22 +212,12 @@ namespace ServiceLibrary
         {
             try
             {
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.Connection = conn;
-                com.CommandText = @"[dbo].[sp_get_food_data]";
-                conn.Open();
-
-                SqlDataReader sdr = com.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable data = new DataTable("음식 리스트");
-                data.Load(sdr);
-
+                DataTable data = GetDataWithProcedure("[dbo].[sp_get_food_data]", "음식 리스트", null);
                 return data;
-
             }
             catch (SqlException ex)
             {
-                return null;
+                throw ex;
             }
         }
 
@@ -191,22 +229,12 @@ namespace ServiceLibrary
         {
             try
             {
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.Connection = conn;
-                com.CommandText = "[dbo].[sp_get_category_data]";
-                conn.Open();
-
-                SqlDataReader sdr = com.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable data = new DataTable("카테고리 리스트");
-                data.Load(sdr);
-
+                DataTable data = GetDataWithProcedure("[dbo].[sp_get_category_data]", "카테고리 리스트", null);
                 return data;
-
             }
             catch (SqlException ex)
             {
-                return null;
+                throw ex;
             }
         }
     }

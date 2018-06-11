@@ -41,16 +41,22 @@ namespace RandomMenuAdvisor_Service
                     }
                 }
             }
-
-            // 호스트를 초기화합니다.
-            host = new ServiceHost(typeof(MenuAdvisor),
+            try
+            {
+                // 호스트를 초기화합니다.
+                host = new ServiceHost(typeof(MenuAdvisor),
                                     new Uri("http://" + localAddress + ":5000/wcf/example/randommenuadvisor_service"));
 
-            // 호스트를 시작합니다.
-            host.Open();
-            // isRunning을 true로 바꿈으로써, 서비스가 실행중임을 알립니다.
-            isRunning = true;
-            return true;
+                // 호스트를 시작합니다.
+                host.Open();
+                // isRunning을 true로 바꿈으로써, 서비스가 실행중임을 알립니다.
+                isRunning = true;
+                return true;
+            } catch(AddressAlreadyInUseException ex)
+            {
+                throw ex;
+            }
+            
         }
 
         /// <summary>

@@ -14,6 +14,7 @@ namespace ServiceLibrary.Service
         MenuAdvisor()
         {
             database = new Database();
+            randomMenu = new RandomMenu(); 
         }
 
         /// <summary>

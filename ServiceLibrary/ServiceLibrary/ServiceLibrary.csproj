@@ -46,6 +46,7 @@
     <Compile Include="Algorithm\RandomMenu.cs" />
     <Compile Include="Interface\IMenuAdvisor.cs" />
     <Compile Include="Model\FoodData.cs" />
+    <Compile Include="Model\SqlParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\MenuAdvisor.cs" />
   </ItemGroup>

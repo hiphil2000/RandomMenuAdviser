@@ -90,18 +90,17 @@ namespace RandomMenuAdvisor_Service
         /// <summary>
         /// 서비스 시작 버튼을 누르면 서비스를 시작합니다.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Btn_StartService_Click(object sender, EventArgs e)
         {
-            if (service.StartService())
+            try
             {
+                service.StartService();
                 MessageBox.Show("서비스가 이제 동작합니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
+            } catch(Exception ex)
             {
-                MessageBox.Show("서비스 시작에 실패했습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("서비스 시작에 실패했습니다.\n" + ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
 
             CheckServices();
         }
