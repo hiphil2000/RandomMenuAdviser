@@ -21,7 +21,7 @@ namespace ServiceLibrary.Interface
         DataTable GetFoodData();
 
         [OperationContract]
-        DataTable GetPercentageData(string category);
+        DataTable GetPercentageData(int data_length);
 
         [OperationContract]
         FoodData GetRandomResult();

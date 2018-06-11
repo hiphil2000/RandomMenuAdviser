@@ -43,7 +43,6 @@ namespace ServiceLibrary
                     if (conn != null)
                         conn.Close();
                     isRunning = false;
-                    throw ex;
                 }
             }
             else if (conn.State == ConnectionState.Closed)
@@ -158,13 +157,13 @@ namespace ServiceLibrary
         /// <summary>
         /// 하나 혹은 모든 카테고리의 전체 대비 비율을 구합니다.
         /// </summary>
-        /// <param name="category">카테고리의 이름 (빈 string : 전체 카테고리, 카테고리 이름: 해당 카테고리)</param>
+        /// <param name="category">카테고리의 이름 (0: 모두, 1: 한 달, 2: 두 달...)</param>
         /// <returns>카테고리 비율</returns>
-        internal DataTable GetPercentageData(string category)
+        internal DataTable GetPercentageData(int data_length)
         {
             try
             {
-                Model.SqlParameter parameter = new Model.SqlParameter("category", category);
+                Model.SqlParameter parameter = new Model.SqlParameter("data_length", data_length);
                 DataTable data = GetDataWithProcedure("[dbo].[sp_categoryPercentage]", "카테고리 비율", parameter);
                 return data;
             }
