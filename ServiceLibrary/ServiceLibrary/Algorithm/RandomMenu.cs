@@ -1,10 +1,6 @@
 ﻿using ServiceLibrary.Model;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServiceLibrary.Algorithm
 {
@@ -64,9 +60,22 @@ namespace ServiceLibrary.Algorithm
                 else
                 {
                     // 최근 메뉴와 랜덤 메뉴 값을 비교합니다.
-                    if (!menuTable.Rows[Ran]["음식 명"].ToString().Equals(latelyTable.Rows[0]["음식 명"].ToString()))
+                    if (date > 0)
                     {
+                        if(!menuTable.Rows[Ran]["음식 명"].ToString().Equals(latelyTable.Rows[0]["음식 명"].ToString()))
+                        {
 
+                            menu = menuTable.Rows[Ran]["음식 명"].ToString();
+                            category = menuTable.Rows[Ran]["카테고리 명"].ToString();
+
+                            db.SetRandomRequestedData(now, category, menu);
+
+                            resultFood.CategoryName = category;
+                            resultFood.FoodName = menu;
+                            return resultFood;
+                        }
+                    } else
+                    {
                         menu = menuTable.Rows[Ran]["음식 명"].ToString();
                         category = menuTable.Rows[Ran]["카테고리 명"].ToString();
 
