@@ -12,9 +12,9 @@ namespace ServiceLibrary
 {
     public class Database
     {
-        private SqlConnection conn;                         // 데이터베이스 연결 변수
-        private bool isRunning;                             // 데이터베이스 연결 가능여부 변수
-        public bool IsRunning { get { return isRunning; } } // 데이터베이스 연결 가능여부 변수 외부참조용
+        private SqlConnection conn;                         // 데이터베이스 연결 변수입니다.
+        private bool isRunning;                             // 데이터베이스 연결 가능여부 변수입니다.
+        public bool IsRunning { get { return isRunning; } } // 데이터베이스 연결 가능여부 프로퍼티입니다.
 
         public Database()
         {
@@ -28,40 +28,41 @@ namespace ServiceLibrary
         /// </summary>
         void ConnectTest()
         {
-            if (conn.State == ConnectionState.Open)
-                isRunning = true;
-            else if (conn.State == ConnectionState.Connecting)
+            switch(conn.State)
             {
-                try
-                {
-                    conn.Open();
-                    conn.Close();
+                case ConnectionState.Open:
                     isRunning = true;
-                }
-                catch (Exception ex)
-                {
-                    if (conn != null)
+                    break;
+                case ConnectionState.Connecting:
+                    try
+                    {
+                        conn.Open();
                         conn.Close();
-                    isRunning = false;
-                }
-            }
-            else if (conn.State == ConnectionState.Closed)
-            {
-                try
-                {
-                    conn.Open();
-                    conn.Close();
-                    isRunning = true;
-                }
-                catch (Exception ex)
-                {
-                    if (conn != null)
+                        isRunning = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        if (conn != null)
+                            conn.Close();
+                        isRunning = false;
+                    }
+                        break;
+                case ConnectionState.Closed:
+                    try
+                    {
+                        conn.Open();
                         conn.Close();
-                    isRunning = false;
-                    throw ex;
-                }
+                        isRunning = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        if (conn != null)
+                            conn.Close();
+                        isRunning = false;
+                        throw ex;
+                    }
+                    break;
             }
-            Console.WriteLine(isRunning.ToString());
         }
 
         

@@ -21,8 +21,7 @@ namespace ServiceLibrary.Algorithm
         {
             DataTable menuTable = db.GetFoodData();                 // 음식을 가져옵니다.
             DataTable latelyTable = db.GetRandomRequestedData(1);   // 어제 음식을 가져옵니다.
-            DataTable percentageTable = db.GetPercentageData(1);  // 카테고리의 퍼센트를 가져옵니다.
-            //DataTable categoryTable = db.GetCategoryData();         // 카테고리 리스트를 가져옵니다.
+            DataTable percentageTable = db.GetPercentageData(1);    // 카테고리의 퍼센트를 가져옵니다.
             int Ran = r.Next(0,menuTable.Rows.Count);               // 행을 기준으로 랜덤을 돌리고 변수에 저장합니다.
             FoodData resultFood = new FoodData();
 
