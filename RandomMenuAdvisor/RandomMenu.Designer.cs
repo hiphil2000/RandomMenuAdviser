@@ -56,11 +56,11 @@
             // 
             // txt_Rec
             // 
-            this.txt_Rec.Font = new System.Drawing.Font("굴림", 25F);
+            this.txt_Rec.Font = new System.Drawing.Font("굴림", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txt_Rec.Location = new System.Drawing.Point(194, 58);
             this.txt_Rec.Name = "txt_Rec";
             this.txt_Rec.ReadOnly = true;
-            this.txt_Rec.Size = new System.Drawing.Size(188, 46);
+            this.txt_Rec.Size = new System.Drawing.Size(188, 45);
             this.txt_Rec.TabIndex = 5;
             this.txt_Rec.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
