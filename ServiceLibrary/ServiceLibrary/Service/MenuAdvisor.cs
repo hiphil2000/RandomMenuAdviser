@@ -59,9 +59,9 @@ namespace ServiceLibrary.Service
         /// </summary>
         /// <param name="category">카테고리의 이름입니다. 빈 string : 전체 카테고리, 카테고리 이름: 해당 카테고리</param>
         /// <returns>카테고리 비율</returns>
-        public DataTable GetPercentageData(string category)
+        public DataTable GetPercentageData(int data_length)
         {
-            return database.GetPercentageData(category);
+            return database.GetPercentageData(data_length);
         }
 
         /// <summary>
