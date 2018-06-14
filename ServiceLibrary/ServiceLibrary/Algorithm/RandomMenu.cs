@@ -6,19 +6,19 @@ namespace ServiceLibrary.Algorithm
 {
     public class RandomMenu
     {
-        Random r = new Random();
-        Database db = new Database();
-        string category;
-        string menu = null;
-        DateTime now = DateTime.Now;
-        int date;
+        private Random random = new Random();
+        private Database db = new Database();
+        private string category;
+        private string menu = null;
+        private DateTime now = DateTime.Now;
+        private int date;
 
         public FoodData Random()
         {
-            DataTable menuTable = db.GetFoodData();                 // 음식을 가져옵니다.
-            DataTable latelyTable = db.GetRandomRequestedData(1);   // 어제 음식을 가져옵니다.
-            DataTable percentageTable = db.GetPercentageData(1);    // 카테고리의 퍼센트를 가져옵니다.
-            int Ran = r.Next(0,menuTable.Rows.Count);               // 행을 기준으로 랜덤을 돌리고 변수에 저장합니다.
+            DataTable menuTable = db.GetFoodData();                 
+            DataTable latelyTable = db.GetRandomRequestedData(1);  
+            DataTable percentageTable = db.GetPercentageData(1);    
+            int Ran = random.Next(0,menuTable.Rows.Count);              
             FoodData resultFood = new FoodData();
 
             // 5개 이상의 데이터가 있는지 확인하는 반복문입니다.
@@ -87,7 +87,7 @@ namespace ServiceLibrary.Algorithm
                     }
                     
                 }
-                Ran = r.Next(0, menuTable.Rows.Count);
+                Ran = random.Next(0, menuTable.Rows.Count);
 
             }
 
