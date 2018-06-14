@@ -66,6 +66,7 @@
             // 
             // dgrid_Sta
             // 
+            this.dgrid_Sta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_Sta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_Sta.Location = new System.Drawing.Point(32, 198);
             this.dgrid_Sta.Name = "dgrid_Sta";
@@ -87,6 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(560, 602);
@@ -97,6 +99,7 @@
             this.Controls.Add(this.dgrid_Sta);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Name = "RandomMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RandomMenu";
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Sta)).EndInit();
             this.ResumeLayout(false);

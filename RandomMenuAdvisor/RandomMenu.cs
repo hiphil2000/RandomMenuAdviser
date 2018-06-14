@@ -72,8 +72,13 @@ namespace RandomMenuAdvisor
                 Thread.Sleep(100 + plusSleepTime);
                 txt_Rec.Invoke(new TextboxUpdateCallback(TextUpdate), new object[] { foodList.Rows[r.Next(0, foodList.Rows.Count)]["음식 명"] });
                 plusSleepTime += 50;
+
+                if (DateTime.Now > endTime)
+                {
+                    Thread.Sleep(100 + plusSleepTime);
+                    txt_Rec.Invoke(new RandomResultCallback(RandomResult), new object[] { client.GetRandomResult().FoodName });
+                }
             }
-            txt_Rec.Invoke(new RandomResultCallback(RandomResult), new object[] { client.GetRandomResult().FoodName });
             btn_Rec.Invoke(new ButtonEnabledCallback(ButtonEnabled));
         }
 
@@ -112,7 +117,7 @@ namespace RandomMenuAdvisor
         private void GetRows()
         {
             dgrid_Sta.DataSource = client.GetRandomRequestedData(1);
-            if((dgrid_Sta.DataSource as DataTable).Rows.Count > 0)
+            if ((dgrid_Sta.DataSource as DataTable).Rows.Count > 0)
                 TextUpdate((dgrid_Sta.DataSource as DataTable).Rows[0]["음식 명"].ToString());
         }
     }
