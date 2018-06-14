@@ -103,10 +103,10 @@ namespace RandomMenuAdvisor.ServiceReference1 {
         System.Threading.Tasks.Task<System.Data.DataTable> GetFoodDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetPercentageData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetPercentageDataResponse")]
-        System.Data.DataTable GetPercentageData(string category);
+        System.Data.DataTable GetPercentageData(int data_length);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetPercentageData", ReplyAction="http://tempuri.org/IMenuAdvisor/GetPercentageDataResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> GetPercentageDataAsync(string category);
+        System.Threading.Tasks.Task<System.Data.DataTable> GetPercentageDataAsync(int data_length);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuAdvisor/GetRandomResult", ReplyAction="http://tempuri.org/IMenuAdvisor/GetRandomResultResponse")]
         RandomMenuAdvisor.ServiceReference1.FoodData GetRandomResult();
@@ -174,12 +174,12 @@ namespace RandomMenuAdvisor.ServiceReference1 {
             return base.Channel.GetFoodDataAsync();
         }
         
-        public System.Data.DataTable GetPercentageData(string category) {
-            return base.Channel.GetPercentageData(category);
+        public System.Data.DataTable GetPercentageData(int data_length) {
+            return base.Channel.GetPercentageData(data_length);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> GetPercentageDataAsync(string category) {
-            return base.Channel.GetPercentageDataAsync(category);
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetPercentageDataAsync(int data_length) {
+            return base.Channel.GetPercentageDataAsync(data_length);
         }
         
         public RandomMenuAdvisor.ServiceReference1.FoodData GetRandomResult() {

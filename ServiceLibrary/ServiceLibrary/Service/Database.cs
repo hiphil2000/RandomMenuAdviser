@@ -12,9 +12,9 @@ namespace ServiceLibrary
 {
     public class Database
     {
-        private SqlConnection conn;                         // 데이터베이스 연결 변수
-        private bool isRunning;                             // 데이터베이스 연결 가능여부 변수
-        public bool IsRunning { get { return isRunning; } } // 데이터베이스 연결 가능여부 변수 외부참조용
+        private SqlConnection conn;                         // 데이터베이스 연결 변수입니다.
+        private bool isRunning;                             // 데이터베이스 연결 가능여부 변수입니다.
+        public bool IsRunning { get { return isRunning; } } // 데이터베이스 연결 가능여부 프로퍼티입니다.
 
         public Database()
         {
@@ -28,41 +28,41 @@ namespace ServiceLibrary
         /// </summary>
         void ConnectTest()
         {
-            if (conn.State == ConnectionState.Open)
-                isRunning = true;
-            else if (conn.State == ConnectionState.Connecting)
+            switch(conn.State)
             {
-                try
-                {
-                    conn.Open();
-                    conn.Close();
+                case ConnectionState.Open:
                     isRunning = true;
-                }
-                catch (Exception ex)
-                {
-                    if (conn != null)
+                    break;
+                case ConnectionState.Connecting:
+                    try
+                    {
+                        conn.Open();
                         conn.Close();
-                    isRunning = false;
-                    throw ex;
-                }
-            }
-            else if (conn.State == ConnectionState.Closed)
-            {
-                try
-                {
-                    conn.Open();
-                    conn.Close();
-                    isRunning = true;
-                }
-                catch (Exception ex)
-                {
-                    if (conn != null)
+                        isRunning = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        if (conn != null)
+                            conn.Close();
+                        isRunning = false;
+                    }
+                        break;
+                case ConnectionState.Closed:
+                    try
+                    {
+                        conn.Open();
                         conn.Close();
-                    isRunning = false;
-                    throw ex;
-                }
+                        isRunning = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        if (conn != null)
+                            conn.Close();
+                        isRunning = false;
+                        throw ex;
+                    }
+                    break;
             }
-            Console.WriteLine(isRunning.ToString());
         }
 
         
@@ -91,7 +91,7 @@ namespace ServiceLibrary
                 conn.Open();
 
                 SqlDataReader sdr = com.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable data = new DataTable("카테고리 비율");
+                DataTable data = new DataTable(tableName);
                 data.Load(sdr);
 
                 return data;
@@ -123,6 +123,7 @@ namespace ServiceLibrary
                 conn.Open();
 
                 com.ExecuteNonQuery();
+                
             }
             catch (SqlException ex)
             {
@@ -134,16 +135,16 @@ namespace ServiceLibrary
         /// <summary>
         /// 클라이언트에서 뽑은 랜덤 메뉴 값을 업데이트 및 삽입합니다.
         /// </summary>
-        /// <param name="random_date">메뉴를 정한 시간입니다.</param>
+        /// <param name="random_requested_date">메뉴를 정한 시간입니다.</param>
         /// <param name="random_category_name">카테고리</param>
-        /// <param name="random_food_name">음식 명</param>
-        internal void SetRandomRequestedData(DateTime random_date, string random_category_name, string random_food_name)
+        /// <param name="random_food_name">음식 명</param> 
+        internal void SetRandomRequestedData(DateTime random_requested_date, string random_category_name, string random_food_name)
         {
             try
             {
                 Model.SqlParameter[] parameters = new Model.SqlParameter[]
                 {
-                    new Model.SqlParameter("random_date", random_date),
+                    new Model.SqlParameter("random_requested_date", random_requested_date.ToString("yyyy-MM-dd HH:mm:ss")),
                     new Model.SqlParameter("random_category_name", random_category_name),
                     new Model.SqlParameter("random_food_name", random_food_name)
                 };
@@ -158,13 +159,13 @@ namespace ServiceLibrary
         /// <summary>
         /// 하나 혹은 모든 카테고리의 전체 대비 비율을 구합니다.
         /// </summary>
-        /// <param name="category">카테고리의 이름 (빈 string : 전체 카테고리, 카테고리 이름: 해당 카테고리)</param>
+        /// <param name="category">카테고리의 이름 (0: 모두, 1: 한 달, 2: 두 달...)</param>
         /// <returns>카테고리 비율</returns>
-        internal DataTable GetPercentageData(string category)
+        internal DataTable GetPercentageData(int data_length)
         {
             try
             {
-                Model.SqlParameter parameter = new Model.SqlParameter("category", category);
+                Model.SqlParameter parameter = new Model.SqlParameter("data_length", data_length);
                 DataTable data = GetDataWithProcedure("[dbo].[sp_categoryPercentage]", "카테고리 비율", parameter);
                 return data;
             }
@@ -190,7 +191,7 @@ namespace ServiceLibrary
         /// <param name="data_length">받아올 데이터의 범위 (0: 모두, 1: 한 달, 2: 두 달...)</param>
         /// <returns>랜덤 메뉴 정보</returns>
         public DataTable GetRandomRequestedData(int data_length)
-        {
+        { 
             try
             {
                 Model.SqlParameter parameter = new Model.SqlParameter("data_length", data_length);

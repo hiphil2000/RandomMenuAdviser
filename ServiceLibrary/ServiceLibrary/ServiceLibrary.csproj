@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithm\Database.cs" />
+    <Compile Include="Service\Database.cs" />
     <Compile Include="Algorithm\RandomMenu.cs" />
     <Compile Include="Interface\IMenuAdvisor.cs" />
     <Compile Include="Model\FoodData.cs" />

@@ -88,7 +88,7 @@
   <xs:element name="GetPercentageData">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="category" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="data_length" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
