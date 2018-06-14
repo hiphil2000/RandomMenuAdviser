@@ -20,18 +20,14 @@ namespace ServiceLibrary.Algorithm
 
         public FoodData Random()
         {
-            DataTable menuTable = db.GetFoodData();                 // 음식을 가져옵니다.
-            DataTable latelyTable = db.GetRandomRequestedData(1);   // 어제 음식을 가져옵니다.
-            DataTable percentageTable = db.GetPercentageData(ret);  // 카테고리의 퍼센트를 가져옵니다.
-            //DataTable categoryTable = db.GetCategoryData();         // 카테고리 리스트를 가져옵니다.
-            int Ran = r.Next(0,menuTable.Rows.Count);               // 행을 기준으로 랜덤을 돌리고 변수에 저장합니다.
+            DataTable menuTable = db.GetFoodData();                 
+            DataTable latelyTable = db.GetRandomRequestedData(1);   
+            DataTable percentageTable = db.GetPercentageData(ret);       
+            int Ran = r.Next(0,menuTable.Rows.Count);              
             FoodData resultFood = new FoodData();
 
-            // 5개 이상의 데이터가 있는지 확인하는 반복문입니다.
             date = latelyTable.Rows.Count;
                 
-            
-
             // 음식 랜덤을 돌리는 알고리즘입니다.
             while (true)
             {
