@@ -112,6 +112,7 @@ namespace RandomMenuAdvisor
         private void GetRows()
         {
             dgrid_Sta.DataSource = client.GetRandomRequestedData(1);
+            TextUpdate((dgrid_Sta.DataSource as DataTable).Rows[0]["음식 명"].ToString());
         }
     }
 }
