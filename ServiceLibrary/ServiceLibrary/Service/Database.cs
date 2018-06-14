@@ -91,7 +91,7 @@ namespace ServiceLibrary
                 conn.Open();
 
                 SqlDataReader sdr = com.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable data = new DataTable("카테고리 비율");
+                DataTable data = new DataTable(tableName);
                 data.Load(sdr);
 
                 return data;
@@ -123,6 +123,7 @@ namespace ServiceLibrary
                 conn.Open();
 
                 com.ExecuteNonQuery();
+                
             }
             catch (SqlException ex)
             {
@@ -134,16 +135,16 @@ namespace ServiceLibrary
         /// <summary>
         /// 클라이언트에서 뽑은 랜덤 메뉴 값을 업데이트 및 삽입합니다.
         /// </summary>
-        /// <param name="random_date">메뉴를 정한 시간입니다.</param>
+        /// <param name="random_requested_date">메뉴를 정한 시간입니다.</param>
         /// <param name="random_category_name">카테고리</param>
-        /// <param name="random_food_name">음식 명</param>
-        internal void SetRandomRequestedData(DateTime random_date, string random_category_name, string random_food_name)
+        /// <param name="random_food_name">음식 명</param> 
+        internal void SetRandomRequestedData(DateTime random_requested_date, string random_category_name, string random_food_name)
         {
             try
             {
                 Model.SqlParameter[] parameters = new Model.SqlParameter[]
                 {
-                    new Model.SqlParameter("random_date", random_date),
+                    new Model.SqlParameter("random_requested_date", random_requested_date.ToString("yyyy-MM-dd HH:mm:ss")),
                     new Model.SqlParameter("random_category_name", random_category_name),
                     new Model.SqlParameter("random_food_name", random_food_name)
                 };
@@ -190,7 +191,7 @@ namespace ServiceLibrary
         /// <param name="data_length">받아올 데이터의 범위 (0: 모두, 1: 한 달, 2: 두 달...)</param>
         /// <returns>랜덤 메뉴 정보</returns>
         public DataTable GetRandomRequestedData(int data_length)
-        {
+        { 
             try
             {
                 Model.SqlParameter parameter = new Model.SqlParameter("data_length", data_length);
