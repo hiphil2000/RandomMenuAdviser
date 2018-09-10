@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ddTrrHZcTBKBi3JZ/7ZDZSr+Ioo=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="oV44fRSRUNjQ0rjeFtA7yvGPzzw=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IMenuAdvisor">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IMenuAdvisor" contract="ServiceReference1.IMenuAdvisor" bindingType="basicHttpBinding" address="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service" bindingConfiguration="BasicHttpBinding_IMenuAdvisor">
+    <endpoint name="BasicHttpBinding_IMenuAdvisor" contract="ServiceReference1.IMenuAdvisor" bindingType="basicHttpBinding" address="http://169.254.231.70:5000/wcf/example/randommenuadvisor_service" bindingConfiguration="BasicHttpBinding_IMenuAdvisor">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://192.168.1.69:5000/wcf/example/randommenuadvisor_service</serializedValue>
+          <serializedValue>http://169.254.231.70:5000/wcf/example/randommenuadvisor_service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

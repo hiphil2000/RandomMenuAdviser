@@ -18,7 +18,7 @@ namespace ServiceLibrary
 
         public Database()
         {
-            string connectionString = "Data Source=192.168.1.69,1433;Integrated Security=False;User ID=sa;Password=p@ssw0rd;Database=RandomMenuAdvisor;" +
+            string connectionString = "Data Source=192.168.0.36,1433;Integrated Security=False;User ID=sa;Password=p@ssw0rd;Database=RandomMenuAdvisor;" +
                 " Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             conn = new SqlConnection(connectionString);
         }

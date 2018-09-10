@@ -32,9 +32,11 @@ namespace RandomMenuAdvisor_Service
         /// </summary>
         private void CheckExit(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("정말로 종료하시겠습니까?", "종료", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("정말로 종료하시겠습니까?", "종료", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 service.StopService();
+            } else
+            {
                 e.Cancel = true;
             }
         }

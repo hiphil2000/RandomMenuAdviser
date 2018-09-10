@@ -38,3 +38,14 @@ C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\bi
 C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\RandomMenuAdvisor_Service.pdb
 C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\ServiceLibrary.dll
 C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\ServiceLibrary.pdb
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\RandomMenuAdvisor_Service.exe.config
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.exe
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.pdb
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.csprojResolveAssemblyReference.cache
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.randomMenuAdvisor_ServiceForm.resources
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.Properties.Resources.resources
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\obj\Debug\RandomMenuAdvisor_Service.csproj.GenerateResource.Cache
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\RandomMenuAdvisor_Service.exe
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\RandomMenuAdvisor_Service.pdb
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\ServiceLibrary.dll
+D:\Repo\Github\RandomMenuAdvisor\RandomMenuAdvisor_Service\bin\Debug\ServiceLibrary.pdb

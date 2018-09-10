@@ -65,7 +65,8 @@ namespace RandomMenuAdvisor_Service
         public bool StopService()
         {
             // 호스트를 종료합니다.
-            host.Close();
+            if(host != null)
+                host.Close();
             // isRunning을 false로 바꿈으로써, 서비스가 종료됐을 알립니다.
             isRunning = false;
             return true;

@@ -7,7 +7,7 @@
         <!-- UAC 매니페스트 옵션
              Windows 사용자 계정 컨트롤 수준을 변경하려면 
              requestedExecutionLevel 노드를 다음 중 하나로 바꿉니다.
-
+  
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />

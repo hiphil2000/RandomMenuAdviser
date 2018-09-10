@@ -15,3 +15,8 @@ C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrar
 C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
 C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.dll
 C:\Users\OFFICE-N119\Source\Repos\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.pdb
+D:\Repo\Github\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.csprojResolveAssemblyReference.cache
+D:\Repo\Github\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.dll
+D:\Repo\Github\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
+D:\Repo\Github\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.dll
+D:\Repo\Github\RandomMenuAdvisor\ServiceLibrary\ServiceLibrary\bin\Debug\ServiceLibrary.pdb

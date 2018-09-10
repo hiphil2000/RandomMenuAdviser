@@ -67,7 +67,7 @@
     <ManifestKeyFile>RandomMenuAdvisor_Service_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ServiceLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

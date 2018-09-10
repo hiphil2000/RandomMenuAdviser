@@ -19,15 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.0.36:5000/wcf/example/randommenuadvisor_service/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="randommenuadvisor_service.xsd" MetadataType="Schema" ID="68e015be-8f81-4abc-84b3-82bcd9d24409" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?xsd=xsd1" />
-    <MetadataFile FileName="randommenuadvisor_service.disco" MetadataType="Disco" ID="a175fc3c-f865-4b6e-add8-67bf8f494d22" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?disco" />
-    <MetadataFile FileName="randommenuadvisor_service1.xsd" MetadataType="Schema" ID="4d68ea5a-f036-4902-b781-080cfd595e25" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?xsd=xsd0" />
-    <MetadataFile FileName="MenuAdvisorService.wsdl" MetadataType="Wsdl" ID="85550311-6695-4ed8-b520-f2167da9d2a8" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?wsdl" />
-    <MetadataFile FileName="randommenuadvisor_service3.xsd" MetadataType="Schema" ID="69671220-a8e7-433d-af9e-81f6a01e5461" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?xsd=xsd3" />
-    <MetadataFile FileName="randommenuadvisor_service2.xsd" MetadataType="Schema" ID="9fb0bc6c-4092-49af-9d98-ab8a0a1d15ea" SourceId="1" SourceUrl="http://192.168.1.69:5000/wcf/example/randommenuadvisor_service?xsd=xsd2" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="a3796fc2-7c8b-4160-ae54-e3961a9f838b" SourceId="1" SourceUrl="http://192.168.0.36:5000/wcf/example/randommenuadvisor_service/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="762f3756-4913-420f-8c9b-4a7d8054113d" SourceId="1" SourceUrl="http://192.168.0.36:5000/wcf/example/randommenuadvisor_service/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="59904ef5-881e-41ab-8f92-61e32fb410fb" SourceId="1" SourceUrl="http://192.168.0.36:5000/wcf/example/randommenuadvisor_service/mex" />
+    <MetadataFile FileName="System.Data.xsd" MetadataType="Schema" ID="e9024b2c-594c-461c-aefe-13ce88908313" SourceId="1" SourceUrl="http://192.168.0.36:5000/wcf/example/randommenuadvisor_service/mex" />
+    <MetadataFile FileName="ServiceLibrary.Model.xsd" MetadataType="Schema" ID="de42707e-7732-464e-823f-d788d96e32ee" SourceId="1" SourceUrl="http://192.168.0.36:5000/wcf/example/randommenuadvisor_service/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

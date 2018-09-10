@@ -82,17 +82,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceReference1\MenuAdvisorService.wsdl" />
     <None Include="Service References\ServiceReference1\RandomMenuAdvisor.ServiceReference1.FoodData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\randommenuadvisor_service.xsd">
+    <None Include="Service References\ServiceReference1\service.wsdl" />
+    <None Include="Service References\ServiceReference1\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\randommenuadvisor_service1.xsd">
+    <None Include="Service References\ServiceReference1\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\randommenuadvisor_service2.xsd">
+    <None Include="Service References\ServiceReference1\ServiceLibrary.Model.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\System.Data.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -106,18 +109,12 @@
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\randommenuadvisor_service.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\randommenuadvisor_service3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
